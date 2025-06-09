@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QCM Gestion de Projet - Résultats</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .resource-card {
+            transition: all 0.3s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #667eea var(--percentage), #e2e8f0 var(--percentage));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            position: relative;
+        }
+        .score-inner {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body class="min-h-screen py-12">
+    <div class="container mx-auto px-4">
+        <div class="glass-effect rounded-2xl shadow-2xl p-8 max-w-5xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-6">
+                    Résultats du QCM
+                </h1>
+                <div id="score-container" class="mb-8">
+                    <div class="score-circle">
+                        <div class="score-inner">
+                            <div id="score-display" class="text-4xl font-bold text-gray-800"></div>
+                            <div class="text-gray-500 text-sm mt-2">Score final</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-12">
+                <h2 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Ressources pour approfondir vos connaissances</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-purple-500">
+                        <h3 class="font-semibold text-xl mb-4 text-purple-600">Scrum</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://scrumguides.org/scrum-guide.html" class="text-gray-600 hover:text-purple-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Guide Scrum Officiel
+                            </a></li>
+                            <li><a href="https://www.scrum.org/resources" class="text-gray-600 hover:text-purple-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Ressources Scrum.org
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-blue-500">
+                        <h3 class="font-semibold text-xl mb-4 text-blue-600">Extreme Programming (XP)</h3>
+                        <ul class="space-y-3">
+                            <li><a href="http://www.extremeprogramming.org/" class="text-gray-600 hover:text-blue-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Site Officiel XP
+                            </a></li>
+                            <li><a href="https://agilemanifesto.org/" class="text-gray-600 hover:text-blue-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Manifeste Agile
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-indigo-500">
+                        <h3 class="font-semibold text-xl mb-4 text-indigo-600">PRINCE2</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.axelos.com/prince2" class="text-gray-600 hover:text-indigo-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Site Officiel PRINCE2
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-green-500">
+                        <h3 class="font-semibold text-xl mb-4 text-green-600">Cycle en V</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.tutorialspoint.com/sdlc/sdlc_v_model.htm" class="text-gray-600 hover:text-green-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Guide du Cycle en V
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-500">
+                        <h3 class="font-semibold text-xl mb-4 text-red-600">3P (Préparer, Piloter, Progresser)</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.manager-go.com/gestion-de-projet/methode-3p.htm" class="text-gray-600 hover:text-red-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Guide Méthode 3P
+                            </a></li>
+                        </ul>
+                    </div>
+
+                    <div class="resource-card bg-white p-6 rounded-xl shadow-lg border-t-4 border-yellow-500">
+                        <h3 class="font-semibold text-xl mb-4 text-yellow-600">Lean</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://lean.org/" class="text-gray-600 hover:text-yellow-600 flex items-center" target="_blank">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
+                                    <path d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"></path>
+                                </svg>
+                                Lean Enterprise Institute
+                            </a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center space-x-6">
+                <a href="questions.html" class="inline-block px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-purple-600 to-blue-600 rounded-full hover:from-purple-700 hover:to-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                    Refaire le QCM
+                </a>
+                <a href="index.html" class="inline-block px-8 py-4 text-lg font-semibold text-gray-700 bg-white rounded-full hover:bg-gray-100 transform hover:scale-105 transition-all duration-200 shadow-lg">
+                    Retour à l'accueil
+                </a>
+            </div>
+
+            <div class="mt-12 text-center text-sm text-gray-500">
+                <p>© 2024 Hamza Bouda - Tous droits réservés</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const score = localStorage.getItem('qcmScore') || '0';
+            const total = localStorage.getItem('qcmTotal') || '150';
+            const percentage = Math.round((score / total) * 100);
+            
+            document.getElementById('score-display').innerHTML = `
+                <div class="text-4xl font-bold">${percentage}%</div>
+                <div class="text-xl mt-1">${score}/${total}</div>
+            `;
+
+            document.querySelector('.score-circle').style.setProperty('--percentage', `${percentage}%`);
+        });
+    </script>
+</body>
+</html> 
